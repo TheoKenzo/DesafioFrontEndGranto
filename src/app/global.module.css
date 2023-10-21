@@ -1,0 +1,65 @@
+.StepIndicatorTextDiv{
+    width: 57vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.StepIndicatorText{
+    color: #000;
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.StepIndicatorBallDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ArchiveUploadForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+.ArchiveUploadFormDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ArchiveUploadFormInputFile{
+    display: none;
+}
+
+.ArchiveUploadFormButton{
+    display: inline-flex;
+    padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    border: 1px solid #5828AC;
+}
+
+.ArchiveUploadFormButtonText{
+    color: #423D4D;
+    text-align: center;
+    font-family: Mulish;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ArchiveUploadFormText{
+    color: #C6C2CC;
+    font-family: Mulish;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
