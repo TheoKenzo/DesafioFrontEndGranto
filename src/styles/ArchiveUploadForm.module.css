@@ -49,3 +49,41 @@
     line-height: normal;
 }
 
+.SelectedArchivesMainDiv{
+    width: 314px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.SelectedArchivesDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.SelectedArchivesFileNameText{
+    color: #000000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.SelectedArchivesFileDataText{
+    color: #A39DAD;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.SelectedArchivesFileTypeText{
+    color: #C6C2CC;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+

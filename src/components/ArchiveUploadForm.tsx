@@ -7,6 +7,7 @@ import { useFormState } from "./FormContext"
 import { useState } from "react"
 import { BackStepButton, Form, NextStepButton } from '@/styled-components/global.styled'
 import { InputFile } from '@/styled-components/ArchiveUploadForm.styled'
+import { SelectedArchives } from "./SelectedArchives"
 
 type TFormValues = {
     // Adicionar Arquivos
@@ -58,7 +59,10 @@ export function ArchiveUploadForm() {
                 <div className={styles.ArchiveUploadFormDiv}>
                     <p>Arquivos selecionados</p>
 
-                    <div id="selectedArchives"></div>
+                    <SelectedArchives />
+                    <SelectedArchives />
+                    <SelectedArchives />
+                    <SelectedArchives />
                 </div>
             </div>
 
