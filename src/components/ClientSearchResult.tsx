@@ -1,4 +1,4 @@
-import { SearchResultButton } from "@/styled-components/BasicInfoForm.styled"
+import { SearchResultButton, SearchResultTextDiv } from "@/styled-components/BasicInfoForm.styled"
 import styles from "../styles/BasicInfoForm.module.css"
 import { useState } from 'react';
 
@@ -12,15 +12,15 @@ function ClientSearchResultItem(props: { nome: string; cnpj: string }) {
     return (
         <div>
             <SearchResultButton onClick={handleButtonClick} className={isClicked ? styles.BasicInfoFormResultButtonTrue : styles.BasicInfoFormResultButtonFalse} type="button">
-                <div>
+                <SearchResultTextDiv>
                     <p className={styles.BasicInfoFormResultLabel}>Nome</p>
                     <p className={styles.BasicInfoFormResultText}>{props.nome}</p>
-                </div>
+                </SearchResultTextDiv>
 
-                <div>
+                <SearchResultTextDiv>
                     <p className={styles.BasicInfoFormResultLabel}>CNPJ</p>
                     <p className={styles.BasicInfoFormResultText}>{props.cnpj}</p>
-                </div>
+                </SearchResultTextDiv>
             </SearchResultButton>
         </div>
     );
@@ -49,7 +49,7 @@ export function ClientSearchResult() {
     }
 
     return (
-        <div>
+        <div className={styles.BasicInfoFormSearchSpace}>
             {searchResult}
         </div>
     )

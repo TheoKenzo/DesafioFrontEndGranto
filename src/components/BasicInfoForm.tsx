@@ -33,7 +33,7 @@ export function BasicInfoForm() {
                 <div>
                     <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("clientName")} required value={inputValue} onInput={handleInputChange} />
                 </div>
-
+                
                 <ClientSearchResult />
             </div>
 
