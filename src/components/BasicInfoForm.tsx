@@ -1,30 +1,37 @@
-"use client"
-
-import { NextStepButton, Input, Form } from "../styled-components/global.styled"
-import { useFormState } from "./FormContext"
-import { useForm } from "react-hook-form"
-import { ClientSearchResult } from "./ClientSearchResult"
+import React, { useState } from 'react';
+import { NextStepButton, Input, Form } from "../styled-components/global.styled";
+import { useFormState } from "./FormContext";
+import { useForm } from "react-hook-form";
+import { ClientSearchResult } from "./ClientSearchResult";
+import styles from "../styles/BasicInfoForm.module.css";
 
 type TFormValues = {
-    client : string
+    clientName: string
+    clientCNPJ: string
 }
 
 export function BasicInfoForm() {
-    const { onHandleNext, setFormData, formData } = useFormState()
+    const { onHandleNext, setFormData, formData } = useFormState();
     const { register, handleSubmit } = useForm<TFormValues>({
         defaultValues: formData
-    })
+    });
 
-    function onHandleFormSubmit(data:any){
-        setFormData((prevFormData) => ({...prevFormData, ...data}))
-        onHandleNext()
+    const [inputValue, setInputValue] = useState('');
+
+    function onHandleFormSubmit(data: any) {
+        setFormData((prevFormData) => ({ ...prevFormData, ...data }));
+        onHandleNext();
+    }
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
     }
 
     return (
         <Form onSubmit={handleSubmit(onHandleFormSubmit)}>
-            <div>
+            <div className={styles.BasicInfoFormSearchSpace}>
                 <div>
-                    <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("client")} required />
+                    <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("clientName")} required value={inputValue} onInput={handleInputChange} />
                 </div>
 
                 <ClientSearchResult />

@@ -1,7 +1,8 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
 
 interface TFormData{
-    client:string
+    clientName:string
+    clientCNPJ: string
     insuranceType : string
     involvedUser : string
     orderDetails : string
@@ -20,7 +21,8 @@ const FormContext = createContext<IFormContext>({
     onHandleNext: () => {},
     step: 1,
     formData: {
-        client: "",
+        clientName: "",
+        clientCNPJ: "",
         insuranceType: "",
         involvedUser: "",
         orderDetails: "",
@@ -35,7 +37,8 @@ interface IProps{
 export function FormProvider({children}:IProps){
     const [step, setStep] = useState(1)
     const [formData, setFormData] = useState<TFormData>({
-        client: "",
+        clientName: "",
+        clientCNPJ: "",
         insuranceType: "",
         involvedUser: "",
         orderDetails: "",

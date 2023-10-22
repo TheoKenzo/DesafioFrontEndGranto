@@ -11,7 +11,7 @@ export const Form = styled.form`
 
 export const Input = styled.input`
     display: flex;
-    width: 604px;
+    width: 636px;
     
     padding: 12px 16px;
     align-items: center;
