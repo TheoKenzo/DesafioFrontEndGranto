@@ -26,13 +26,10 @@ export const Option = styled.option`
     color: #000000;
 `
 
-export const FormDivSpace = styled.div`
-    gap: 8px;
-`
-
 export const TextArea = styled.textarea`
+    resize: none;
     display: flex;
-    width: 602px;
+    width: 636px;
     height: 120px;
     padding: 12px 16px;
     align-items: center;

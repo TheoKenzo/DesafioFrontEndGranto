@@ -1,0 +1,27 @@
+.StepIndicatorDiv{
+    width: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.StepIndicatorText{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.StepIndicatorTextDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.StepIndicatorBallDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -6,6 +6,7 @@ export const Form = styled.form`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 32px;
 `
 
 export const Input = styled.input`

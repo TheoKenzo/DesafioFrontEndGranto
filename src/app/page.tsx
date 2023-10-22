@@ -8,12 +8,10 @@ import { FormStep } from "@/components/FormStep";
 export default function Home() {
   return (
     <MainBox>
-      <div>
         <FormProvider>
           <StepIndicator />
           <FormStep />
         </FormProvider>
-      </div>
     </MainBox>
   )
 }

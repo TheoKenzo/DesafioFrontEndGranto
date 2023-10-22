@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const MainBox = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     min-height: 30vh;
     min-width: 38em;
@@ -12,5 +13,5 @@ export const MainBox = styled.div`
     border-radius: 8px;
     border: 1px solid #C6C2CC;
     background: #FFFFFF;
-    gap: 24px;
+    gap: 32px;
 `

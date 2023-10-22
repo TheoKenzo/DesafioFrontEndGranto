@@ -10,6 +10,7 @@ export const InputFile = styled.label`
     flex-shrink: 0;
     border-radius: 4px;
     border: 1px dashed #C6C2CC;
+    gap: 24px;
 
     /*Estilos do texto*/
 

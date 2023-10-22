@@ -3,6 +3,7 @@
 import { NextStepButton, Input, Form } from "../styled-components/global.styled"
 import { useFormState } from "./FormContext"
 import { useForm } from "react-hook-form"
+import { ClientSearchResult } from "./ClientSearchResult"
 
 type TFormValues = {
     client : string
@@ -22,10 +23,12 @@ export function BasicInfoForm() {
     return (
         <Form onSubmit={handleSubmit(onHandleFormSubmit)}>
             <div>
-                <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("client")} required />
-            </div>
+                <div>
+                    <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("client")} required />
+                </div>
 
-            <div id="clientSearchResult"></div>
+                <ClientSearchResult />
+            </div>
 
             <div>
                 <NextStepButton>Avançar para os detalhes</NextStepButton>

@@ -1,9 +1,11 @@
 "use client"
 
-import { Select, TextArea, Option, FormDivSpace } from "../styled-components/DetailsForm.styled"
+import { Select, TextArea, Option } from "../styled-components/DetailsForm.styled"
 import { NextStepButton, BackStepButton, Form } from "../styled-components/global.styled"
 import { useForm } from "react-hook-form"
 import { useFormState } from "./FormContext"
+import gstyles from "../styles/global.module.css"
+import styles from "../styles/DetailsForm.module.css"
 
 type TFormValues = {
     insuranceType : string
@@ -24,34 +26,34 @@ export function DetailsForm() {
 
     return (
         <Form onSubmit={handleSubmit(onHandleFormSubmit)}>
-            <div>
-                <FormDivSpace>
-                    <label htmlFor="insuranceType">Tipo de Seguro</label>
+            <div className={styles.DetailsFormDiv}>
+                <div className={styles.DetailsFormDiv}>
+                    <p>Tipo de Seguro</p>
                     <Select id="insuranceType" {...register("insuranceType")} required>
-                    <Option value="" selected disabled hidden>Selecione</Option>
+                        <Option value="" selected disabled hidden>Selecione</Option>
                         <Option value="S1">Opção de Seguro 1</Option>
                         <Option value="S2">Opção de Seguro 2</Option>
                         <Option value="S3">Opção de Seguro 3</Option>
                     </Select>
-                </FormDivSpace>
+                </div>
 
-                <FormDivSpace>
-                    <label htmlFor="involvedUser">Selecione os usuários envolvidos</label>
+                <div className={styles.DetailsFormDiv}>
+                    <p>Selecione os usuários envolvidos</p>
                     <Select id="involvedUser" {...register("involvedUser")} required>
                         <Option value="" selected disabled hidden>Selecione</Option>
                         <Option value="U1">Opção de Usuário 1</Option>
                         <Option value="U2">Opção de Usuário 2</Option>
                         <Option value="U3">Opção de Usuário 3</Option>
                     </Select>
-                </FormDivSpace>
+                </div>
 
-                <FormDivSpace>
-                    <label htmlFor="orderDetails">Adicione aqui os detalhes da ordem de serviço</label>
-                    <TextArea id="orderDetails" {...register("orderDetails")}></TextArea>
-                </FormDivSpace>
+                <div className={styles.DetailsFormDiv}>
+                    <p>Adicione aqui os detalhes da ordem de serviço</p>
+                    <TextArea id="orderDetails" {...register("orderDetails")} required></TextArea>
+                </div>
             </div>
 
-            <div className="styles.">
+            <div className={gstyles.StepButtonsStyle}>
                 <BackStepButton type="button" onClick={ onHandleBack }>Selecionar outro cliente</BackStepButton>
                 <NextStepButton>Avançar para documentação</NextStepButton>
             </div>
