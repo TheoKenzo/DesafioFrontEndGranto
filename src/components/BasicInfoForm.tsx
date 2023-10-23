@@ -6,8 +6,7 @@ import { ClientSearchResult } from "./ClientSearchResult";
 import styles from "../styles/BasicInfoForm.module.css";
 
 type TFormValues = {
-    clientName: string
-    clientCNPJ: string
+    clientSearchInput: string
 }
 
 export function BasicInfoForm() {
@@ -31,7 +30,7 @@ export function BasicInfoForm() {
         <Form onSubmit={handleSubmit(onHandleFormSubmit)}>
             <div className={styles.BasicInfoFormSearchSpace}>
                 <div>
-                    <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" {...register("clientName")} required value={inputValue} onInput={handleInputChange} />
+                    <Input type="text" id="client" placeholder="Nome do cliente ou CNPJ" required value={inputValue} onInput={handleInputChange} />
                 </div>
                 
                 <ClientSearchResult />

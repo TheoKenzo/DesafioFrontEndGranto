@@ -6,7 +6,7 @@ export const MainBox = styled.div`
     justify-content: space-between;
     align-items: center;
     min-height: 30vh;
-    min-width: 38em;
+    min-width: 58em;
     max-width: 68em;
     width: 90%;
     padding: 1.5rem;

@@ -29,7 +29,7 @@ export function DetailsForm() {
             <div className={styles.DetailsFormDiv}>
                 <div className={styles.DetailsFormDiv}>
                     <p>Tipo de Seguro</p>
-                    <Select id="insuranceType" {...register("insuranceType")} required>
+                    <Select {...register("insuranceType")} required>
                         <Option value="" selected disabled hidden>Selecione</Option>
                         <Option value="S1">Opção de Seguro 1</Option>
                         <Option value="S2">Opção de Seguro 2</Option>
@@ -39,7 +39,7 @@ export function DetailsForm() {
 
                 <div className={styles.DetailsFormDiv}>
                     <p>Selecione os usuários envolvidos</p>
-                    <Select id="involvedUser" {...register("involvedUser")} required>
+                    <Select {...register("involvedUser")} required>
                         <Option value="" selected disabled hidden>Selecione</Option>
                         <Option value="U1">Opção de Usuário 1</Option>
                         <Option value="U2">Opção de Usuário 2</Option>
@@ -49,7 +49,7 @@ export function DetailsForm() {
 
                 <div className={styles.DetailsFormDiv}>
                     <p>Adicione aqui os detalhes da ordem de serviço</p>
-                    <TextArea id="orderDetails" {...register("orderDetails")} required></TextArea>
+                    <TextArea {...register("orderDetails")} required></TextArea>
                 </div>
             </div>
 
