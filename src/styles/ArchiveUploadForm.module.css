@@ -1,3 +1,8 @@
+.ArchiveUploadFormIsCreatedDiv{
+    display: flex;
+    flex-direction: column;
+}
+
 .ArchiveUploadForm{
     display: flex;
     justify-content: space-between;

@@ -27,7 +27,7 @@ export function ArchiveUploadForm() {
     }
 
     return isCreated ? (
-        <div>
+        <div className={styles.ArchiveUploadFormIsCreatedDiv}>
             <h1>Formulário Salvo com Sucesso</h1>
             <pre>{JSON.stringify(formData)}</pre>
         </div>

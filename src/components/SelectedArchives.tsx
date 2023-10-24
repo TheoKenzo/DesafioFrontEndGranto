@@ -60,7 +60,7 @@ function FileDivider() {
 }
 
 export function SelectedArchives() {
-    const [fileList, setFileList] = useState<Array<File>>([]);
+    const [ newFileList, setNewFileList ] = useState<Array<File>>([])
     const { formData, setFormData } = useFormState()
 
     const data = new Date();
@@ -71,12 +71,12 @@ export function SelectedArchives() {
 
     const dataFormatada = `${dia}/${mes}/${ano}`;
 
-    function HandleUpload(archive:any) {
-        setFormData((prevFormData) => ({ ...prevFormData, archives: archive }));
+    function HandleUpload(fileList: Array<File>) {
+        setFormData((prevFormData) => ({ ...prevFormData, archives: fileList }))
     }
 
     const removeFile = (indexToRemove: number) => {
-        setFileList((prevFileList: Array<File>) => {
+        setNewFileList((prevFileList: Array<File>) => {
             const newList = [...prevFileList];
             newList.splice(indexToRemove, 1);
             return newList;
@@ -88,12 +88,11 @@ export function SelectedArchives() {
 
         const handleChange = () => {
             if (archiveInput.files) {
-                const selectedFiles = Array.from(archiveInput.files || []);
-                HandleUpload(selectedFiles);
-
-                setFileList(prev => {
-                    const fileList = prev || [];
-                    return [...fileList, ...Array.from(archiveInput.files || [])];
+                setNewFileList(prev => {
+                    let fileList = prev || [];
+                    fileList = [...fileList, ...Array.from(archiveInput.files || [])]
+                    HandleUpload(fileList)
+                    return fileList
                 });
             }
         };
@@ -107,7 +106,7 @@ export function SelectedArchives() {
 
     return (
         <div>
-            {fileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} dataFormatada={dataFormatada} divider={index < (fileList.length - 1)} onRemove={() => removeFile(index)} />))}
+            {newFileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} dataFormatada={dataFormatada} divider={index < (newFileList.length - 1)} onRemove={() => removeFile(index)} />))}
         </div>
     )
 }
