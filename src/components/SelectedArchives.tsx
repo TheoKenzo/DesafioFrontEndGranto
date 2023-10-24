@@ -1,8 +1,9 @@
 import { SelectedArchivesDiv, SelectedArchivesDivData, SelectedArchivesSelect } from "@/styled-components/ArchiveUploadForm.styled";
 import styles from "../styles/ArchiveUploadForm.module.css"
 import React, { useState, useEffect } from 'react';
+import { useFormState } from "./FormContext"
 
-function SelectedArchivesItem(props: { name: string; date: any; divider: boolean, onRemove: () => void }) {
+function SelectedArchivesItem(props: { name: string; dataFormatada: string; divider: boolean, onRemove: () => void }) {
     return (
         <div>
             <SelectedArchivesDiv>
@@ -15,19 +16,25 @@ function SelectedArchivesItem(props: { name: string; date: any; divider: boolean
 
                     <div className={styles.SelectedArchivesDiv}>
                         <SelectedArchivesDivData>
-                            <p className={styles.SelectedArchivesFileDataText}>Anexado: {props.date}</p>
+                            <p className={styles.SelectedArchivesFileDataText}>Anexado: {props.dataFormatada}</p>
                             <p className={styles.SelectedArchivesFileDataText}>Enviado por: Daniella Barbosa</p>
                         </SelectedArchivesDivData>
 
                         <SelectedArchivesDivData>
                             <p className={styles.SelectedArchivesFileTypeText}>Selecione o tipo de arquivo</p>
 
+                        <div className={styles.SelectedArchivesSelect}>
                             <SelectedArchivesSelect name="archiveType">
-                                <option value="" selected disabled hidden>Selecionar</option>
+                                <option selected disabled hidden>Selecionar</option>
                                 <option value="A1">Tipo de Arquivo 1</option>
                                 <option value="A2">Tipo de Arquivo 2</option>
                                 <option value="A3">Tipo de Arquivo 3</option>
                             </SelectedArchivesSelect>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none">
+                                <path d="M9.5 5L6 8.5L2.5 5" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         </SelectedArchivesDivData>
                     </div>
                 </div>
@@ -55,6 +62,25 @@ function FileDivider() {
 
 export function SelectedArchives() {
     const [fileList, setFileList] = useState<Array<File>>([]);
+    const { setFormData } = useFormState()
+
+    const data = new Date();
+
+    const dia = data.getDate();
+    const mes = data.getMonth() + 1;
+    const ano = data.getFullYear();
+
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    function HandleUpload(data: { archiveName: string }) {
+        const newData = {
+            name: data.archiveName,
+            date: dataFormatada,
+            file: "",
+        }
+
+        setFormData((prevFormData) => ({ ...prevFormData, archives: [newData] }))
+    }
 
     const removeFile = (indexToRemove: number) => {
         setFileList((prevFileList: Array<File>) => {
@@ -69,6 +95,7 @@ export function SelectedArchives() {
 
         const handleChange = () => {
             if (archiveInput.files) {
+                HandleUpload({ archiveName: archiveInput.files[0].name})
                 setFileList(prev => {
                     const fileList = prev || [];
                     return [...fileList, ...Array.from(archiveInput.files || [])];
@@ -85,7 +112,7 @@ export function SelectedArchives() {
 
     return (
         <div>
-            {fileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} date={file.lastModified} divider={index < (fileList.length - 1)} onRemove={() => removeFile(index)} />))}
+            {fileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} dataFormatada={dataFormatada} divider={index < (fileList.length - 1)} onRemove={() => removeFile(index)} />))}
         </div>
     )
 }

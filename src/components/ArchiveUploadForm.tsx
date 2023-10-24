@@ -11,14 +11,14 @@ import { InputFile } from '@/styled-components/ArchiveUploadForm.styled'
 import { SelectedArchives } from "./SelectedArchives"
 
 type TFormValues = {
-    // Adicionar Arquivos
+    archives: Blob
 }
 
 export function ArchiveUploadForm() {
     const [ isCreated, setCreated ] = useState(false)
     const { onHandleBack, setFormData, formData } = useFormState()
     const { register, handleSubmit } = useForm<TFormValues>({
-        /*defaultValues: formData*/
+        defaultValues: formData
     });
 
     function onHandleFormSubmit(data:any){
@@ -37,7 +37,7 @@ export function ArchiveUploadForm() {
                 <div className={styles.ArchiveUploadFormDiv}>
                     <p className={styles.ArchiveUploadFormLabel}>Escolha aqui os arquivos que você deseja adicionar</p>
 
-                    <input type="file" id="file" placeholder="file" className={styles.ArchiveUploadFormInputFile} /*{...register("")}*/ multiple /> 
+                    <input type="file" id="file" placeholder="file" className={styles.ArchiveUploadFormInputFile} {...register("archives")} multiple /> 
                     <InputFile htmlFor="file">
                         <div className={styles.ArchiveUploadSvgTextSpace}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="63" viewBox="0 0 64 63" fill="none">

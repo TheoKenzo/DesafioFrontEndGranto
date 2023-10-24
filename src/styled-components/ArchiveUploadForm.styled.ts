@@ -35,17 +35,17 @@ export const SelectedArchivesDivData = styled.div`
 `
 
 export const SelectedArchivesSelect = styled.select`
-    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('../styles/svg/cheveron-down-ArchiveUploadForm.svg');
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: right center;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
     min-width: 101px;
     height: 21px;   
     display: flex;
-    padding: 4px 16px;
     align-items: center;
     gap: 8px;
     border-radius: 8px;

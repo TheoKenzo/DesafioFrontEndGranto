@@ -5,15 +5,9 @@ import { useForm } from "react-hook-form";
 import { ClientSearchResult } from "./ClientSearchResult";
 import styles from "../styles/BasicInfoForm.module.css";
 
-type TFormValues = {
-    clientSearchInput: string
-}
-
 export function BasicInfoForm() {
     const { onHandleNext, setFormData, formData } = useFormState();
-    const { register, handleSubmit } = useForm<TFormValues>({
-        defaultValues: formData
-    });
+    const { handleSubmit } = useForm();
 
     const [inputValue, setInputValue] = useState('');
 

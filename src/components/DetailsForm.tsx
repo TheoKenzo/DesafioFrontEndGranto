@@ -30,7 +30,7 @@ export function DetailsForm() {
                 <div className={styles.DetailsFormDiv}>
                     <p>Tipo de Seguro</p>
                     <Select {...register("insuranceType")} required>
-                        <Option value="" selected disabled hidden>Selecione</Option>
+                        <Option selected disabled hidden>Selecione</Option>
                         <Option value="S1">Opção de Seguro 1</Option>
                         <Option value="S2">Opção de Seguro 2</Option>
                         <Option value="S3">Opção de Seguro 3</Option>
@@ -40,7 +40,7 @@ export function DetailsForm() {
                 <div className={styles.DetailsFormDiv}>
                     <p>Selecione os usuários envolvidos</p>
                     <Select {...register("involvedUser")} required>
-                        <Option value="" selected disabled hidden>Selecione</Option>
+                        <Option selected disabled hidden>Selecione</Option>
                         <Option value="U1">Opção de Usuário 1</Option>
                         <Option value="U2">Opção de Usuário 2</Option>
                         <Option value="U3">Opção de Usuário 3</Option>

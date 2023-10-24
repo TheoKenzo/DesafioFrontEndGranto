@@ -1,12 +1,26 @@
 import { SearchResultButton, SearchResultTextDiv } from "@/styled-components/BasicInfoForm.styled"
 import styles from "../styles/BasicInfoForm.module.css"
 import { useState } from 'react';
+import { useFormState } from "./FormContext"
+
+interface TFormValues{
+    clientName: string
+    clientCNPJ: string
+}
 
 function ClientSearchResultItem(props: { nome: string; cnpj: string }) {
-    const [isClicked, setIsClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(false)
+    const { setFormData } = useFormState()
+
+    function onHandleClick(data: { clientName: string, clientCNPJ: string }) {
+        setFormData((prevFormData) => ({ ...prevFormData, clientName: data.clientName, clientCNPJ: data.clientCNPJ }))
+    }
 
     const handleButtonClick = () => {
-        setIsClicked(!isClicked);
+        setIsClicked(!isClicked)
+
+        if (!isClicked)
+            onHandleClick({ clientName: props.nome, clientCNPJ: props.cnpj })
     };
 
     return (

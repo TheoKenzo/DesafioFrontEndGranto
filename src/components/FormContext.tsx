@@ -6,6 +6,7 @@ interface TFormData{
     insuranceType : string
     involvedUser : string
     orderDetails : string
+    archives: Array<object>
 }
 
 interface IFormContext{
@@ -26,6 +27,7 @@ const FormContext = createContext<IFormContext>({
         insuranceType: "",
         involvedUser: "",
         orderDetails: "",
+        archives: [],
     },
     setFormData: () => {},
 })
@@ -42,6 +44,7 @@ export function FormProvider({children}:IProps){
         insuranceType: "",
         involvedUser: "",
         orderDetails: "",
+        archives: [],
     })
 
     function onHandleNext(){
