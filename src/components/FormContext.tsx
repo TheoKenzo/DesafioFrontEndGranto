@@ -6,7 +6,7 @@ interface TFormData{
     insuranceType : string
     involvedUser : string
     orderDetails : string
-    archives: Array<object>
+    archives: Array<File>
 }
 
 interface IFormContext{

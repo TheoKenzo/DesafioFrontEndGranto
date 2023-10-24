@@ -13,7 +13,10 @@ export function BasicInfoForm() {
 
     function onHandleFormSubmit(data: any) {
         setFormData((prevFormData) => ({ ...prevFormData, ...data }));
-        onHandleNext();
+        if(formData.clientName != "")
+            onHandleNext();
+        else
+            alert("Selecione um cliente")
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

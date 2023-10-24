@@ -24,8 +24,8 @@ function SelectedArchivesItem(props: { name: string; dataFormatada: string; divi
                             <p className={styles.SelectedArchivesFileTypeText}>Selecione o tipo de arquivo</p>
 
                         <div className={styles.SelectedArchivesSelect}>
-                            <SelectedArchivesSelect name="archiveType">
-                                <option selected disabled hidden>Selecionar</option>
+                            <SelectedArchivesSelect name="archiveType" required>
+                                <option value="" selected disabled hidden>Selecionar</option>
                                 <option value="A1">Tipo de Arquivo 1</option>
                                 <option value="A2">Tipo de Arquivo 2</option>
                                 <option value="A3">Tipo de Arquivo 3</option>
@@ -59,10 +59,9 @@ function FileDivider() {
     );
 }
 
-
 export function SelectedArchives() {
     const [fileList, setFileList] = useState<Array<File>>([]);
-    const { setFormData } = useFormState()
+    const { formData, setFormData } = useFormState()
 
     const data = new Date();
 
@@ -72,14 +71,8 @@ export function SelectedArchives() {
 
     const dataFormatada = `${dia}/${mes}/${ano}`;
 
-    function HandleUpload(data: { archiveName: string }) {
-        const newData = {
-            name: data.archiveName,
-            date: dataFormatada,
-            file: "",
-        }
-
-        setFormData((prevFormData) => ({ ...prevFormData, archives: [newData] }))
+    function HandleUpload(archive:any) {
+        setFormData((prevFormData) => ({ ...prevFormData, archives: archive }));
     }
 
     const removeFile = (indexToRemove: number) => {
@@ -95,7 +88,9 @@ export function SelectedArchives() {
 
         const handleChange = () => {
             if (archiveInput.files) {
-                HandleUpload({ archiveName: archiveInput.files[0].name})
+                const selectedFiles = Array.from(archiveInput.files || []);
+                HandleUpload(selectedFiles);
+
                 setFileList(prev => {
                     const fileList = prev || [];
                     return [...fileList, ...Array.from(archiveInput.files || [])];

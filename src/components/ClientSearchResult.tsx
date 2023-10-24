@@ -46,7 +46,7 @@ export function ClientSearchResult() {
         { nome: "Granto Seguros", cnpj: "09.013.155/0001-37" }
     ]
 
-    const inputElement: HTMLInputElement | null = document.querySelector("#client")
+    const inputElement = document.querySelector("#client") as HTMLInputElement
 
     const searchResult = [];
 
