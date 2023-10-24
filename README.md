@@ -3,13 +3,13 @@ Primeiro, remova package-lock.json, então:
 
 ```bash
 npm i
-# and
+# e
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
@@ -34,7 +34,9 @@ Quanto ao formulário
 Quanto ao desenvolvimento
 
 ```bash
-- Foi tomada a decisão de seleção do botão "Selecionar outro cliente", da segunda etapa, de voltar e resetar os dados preenchidos na primeira para que o usuário não tenha de apagar os dados na barra de pesquisa para realizar nova pesquisa;
+- Foi tomada a decisão de seleção do botão "Selecionar outro cliente", da segunda etapa, de voltar 
+e resetar os dados preenchidos na primeira para que o usuário não tenha de apagar os dados na barra de pesquisa 
+para realizar nova pesquisa;
 - O tamanho do formulário se adapta de forma que mantenha as características da prototipação;
 - Como não foram disponibilizadas telas para versão mobile o formulário possuí tamanho limite.
 ```
