@@ -2,7 +2,7 @@ import { SelectedArchivesDiv, SelectedArchivesDivData, SelectedArchivesSelect } 
 import styles from "../styles/ArchiveUploadForm.module.css"
 import React, { useState, useEffect } from 'react';
 
-function SelectedArchivesItem(props: { name: string; divider: boolean, onRemove: () => void }) {
+function SelectedArchivesItem(props: { name: string; date: any; divider: boolean, onRemove: () => void }) {
     return (
         <div>
             <SelectedArchivesDiv>
@@ -15,7 +15,7 @@ function SelectedArchivesItem(props: { name: string; divider: boolean, onRemove:
 
                     <div className={styles.SelectedArchivesDiv}>
                         <SelectedArchivesDivData>
-                            <p className={styles.SelectedArchivesFileDataText}>Anexado: 19/06/2023</p>
+                            <p className={styles.SelectedArchivesFileDataText}>Anexado: {props.date}</p>
                             <p className={styles.SelectedArchivesFileDataText}>Enviado por: Daniella Barbosa</p>
                         </SelectedArchivesDivData>
 
@@ -85,7 +85,7 @@ export function SelectedArchives() {
 
     return (
         <div>
-            {fileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} divider={index < (fileList.length - 1)} onRemove={() => removeFile(index)} />))}
+            {fileList.map((file, index) => (<SelectedArchivesItem key={index} name={file.name} date={file.lastModified} divider={index < (fileList.length - 1)} onRemove={() => removeFile(index)} />))}
         </div>
     )
 }
